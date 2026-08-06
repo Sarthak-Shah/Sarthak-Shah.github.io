@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarthak Shah — Backend &amp; Embedded Engineer</title>
+<meta name="description" content="Sarthak Shah is a senior software engineer in Toronto building backend systems and REST APIs with Python, Django and FastAPI, mostly in aerospace, plus embedded and IoT work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9E9EC;
+    --card:#FFFFFF;
+    --ink:#0F1219;
+    --muted:#585E6E;
+    --accent:#2438E0;
+    --line:#C8CAD3;
+    --wrap:1080px;
+    --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    --body:"Newsreader",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--body);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(36,56,224,.35)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);display:flex;align-items:center;gap:12px;margin:0 0 22px;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  header{padding:56px 0 8px}
+  .status{
+    font-family:var(--mono);font-size:12px;color:var(--muted);
+    display:flex;align-items:center;gap:9px;margin-bottom:34px;flex-wrap:wrap;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;
+       box-shadow:0 0 0 4px rgba(36,56,224,.14)}
+  h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(2.7rem,8vw,5.2rem);line-height:.95;letter-spacing:-.035em;
+    margin:0 0 26px;max-width:15ch;
+  }
+  .lede{font-size:clamp(1.05rem,2.4vw,1.26rem);max-width:62ch;margin:0 0 20px;color:#1E2330}
+  .lede + .lede{color:var(--muted);font-size:1.02rem}
+  .links{display:flex;flex-wrap:wrap;gap:10px;padding:14px 0 64px}
+  .chip{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;
+    padding:9px 15px;border:1px solid var(--line);border-radius:999px;background:var(--card);
+    color:var(--ink);transition:.18s ease;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+
+  .rule{height:1px;background:var(--line)}
+  section{padding:64px 0}
+
+  /* work entries */
+  .svc{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:28px;
+    padding:26px 0;border-top:1px solid var(--line);
+  }
+  .svc:first-of-type{border-top:none;padding-top:4px}
+  .slug{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin:0 0 10px;word-break:break-word}
+  .svc h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.2;
+          letter-spacing:-.02em;margin:0 0 6px}
+  .where{font-family:var(--mono);font-size:11.5px;color:var(--muted);
+         text-transform:uppercase;letter-spacing:.11em;margin:0}
+  .svc p{margin:0 0 14px}
+  .stack{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--muted);
+       border:1px solid var(--line);border-radius:3px;padding:3px 8px;background:var(--card)}
+
+  /* learning tracks */
+  #learning{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:40px;margin-top:6px}
+  .track h3{font-family:var(--display);font-weight:600;font-size:1.45rem;letter-spacing:-.02em;
+            margin:0 0 4px}
+  .track .aim{font-family:var(--mono);font-size:11.5px;color:var(--accent);
+              text-transform:uppercase;letter-spacing:.11em;margin:0 0 14px}
+  .track p{margin:0 0 14px}
+  .track ul{margin:0 0 16px;padding-left:18px;color:var(--muted);font-size:15.5px}
+  .track li{margin-bottom:5px}
+  .note{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.65;
+        border-left:2px solid var(--accent);padding-left:14px;max-width:64ch;margin:38px 0 0}
+
+  /* experience */
+  .role{display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;
+        padding:18px 0;border-top:1px solid var(--line);align-items:baseline}
+  .role:first-of-type{border-top:none}
+  .when{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .role h3{font-family:var(--display);font-weight:600;font-size:1.06rem;margin:0;letter-spacing:-.01em}
+  .role p{margin:4px 0 0;color:var(--muted);font-size:15.5px}
+
+  /* stack grid */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;
+          background:var(--line);border:1px solid var(--line)}
+  .cell{background:var(--card);padding:20px 22px}
+  .cell h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+           color:var(--accent);margin:0 0 9px;font-weight:500}
+  .cell p{margin:0;font-size:15.5px;line-height:1.55}
+
+  footer{background:var(--ink);color:#D6D8E2;padding:72px 0 44px}
+  footer h2{font-family:var(--display);font-weight:800;letter-spacing:-.03em;
+            font-size:clamp(2rem,5.5vw,3.1rem);line-height:1;margin:0 0 18px;color:#fff;max-width:16ch}
+  footer p{max-width:54ch;color:#9EA3B4;margin:0 0 12px}
+  footer .chip{background:transparent;border-color:#2C3140;color:#D6D8E2}
+  footer .chip:hover{border-color:#fff;color:#fff}
+  .colophon{font-family:var(--mono);font-size:11px;color:#666C7E;margin-top:48px;
+            border-top:1px solid #232838;padding-top:20px}
+
+  @media (max-width:760px){
+    .svc,.role{grid-template-columns:1fr;gap:10px}
+    .role{padding:16px 0}
+    section{padding:48px 0}
+    header{padding-top:40px}
+    .tracks{gap:34px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="status"><span class="dot" aria-hidden="true"></span>Toronto, Canada · Backend and embedded · Open to new work</p>
+    <h1>Backend systems, and the hardware they talk to.</h1>
+    <p class="lede">Sarthak Shah. Nine years of Python engineering, currently building backend systems and REST APIs with Django, FastAPI and AWS for the aerospace domain: computer vision cost estimation for aircraft exteriors, and ETL pipelines over ATA documentation that feed MRO workflows.</p>
+    <p class="lede">Before that, embedded and IoT: water controllers, medical devices, sensor protocols. I like the parts of a system where software meets something physical, and I like the parts where it has to keep running at 3am.</p>
+    <nav class="links" aria-label="Contact and profiles">
+      <a class="chip" href="mailto:er.sarthak@outlook.com">er.sarthak@outlook.com</a>
+      <a class="chip" href="tel:+14167324183">(416) 732-4183</a>
+      <a class="chip" href="https://www.linkedin.com/in/sarthakshah94" rel="me">LinkedIn</a>
+      <a class="chip" href="https://github.com/Sarthak-Shah" rel="me">GitHub</a>
+      <a class="chip" href="https://medium.com/@sarthakshah1920" rel="me">Medium</a>
+      <a class="chip" href="Sarthak_Shah_Resume.pdf">Résumé (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="rule"></div>
+
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">What I have built</p>
+
+    <article class="svc">
+      <div>
+        <p class="slug">aerospace / smart-configurator</p>
+        <h3>Aircraft surface configurator</h3>
+        <p class="where">Libellule Monde · 2023 to now</p>
+      </div>
+      <div>
+        <p>A Django platform that analyses aircraft exterior regions and estimates the time, resources and cost of surface treatments like decals and paint masks. I led it from user interviews through to production, built the OpenCV and image annotation tooling, and trained a YOLOv7 detection model with Roboflow to replace the slower manual region marking.</p>
+        <div class="stack"><span class="tag">Django</span><span class="tag">OpenCV</span><span class="tag">YOLOv7</span><span class="tag">Roboflow</span><span class="tag">PostgreSQL</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">aerospace / parts-labels</p>
+        <h3>Parts label generation service</h3>
+        <p class="where">Libellule Monde · ongoing</p>
+      </div>
+      <div>
+        <p>A FastAPI service that generates enterprise-specific labels, stickers and plates for aircraft parts, with search across a large part-number database. Redis sits in front as a caching and pre-indexed serving layer, which cut database round trips and made search suggestions fast enough to be useful while typing.</p>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span><span class="tag">Docker</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">aerospace / ata-pipelines</p>
+        <h3>ATA documentation ETL</h3>
+        <p class="where">Libellule Monde</p>
+      </div>
+      <div>
+        <p>Pipelines that pull structure out of ATA-standard aerospace documentation and load it into the analytics platform, so maintenance and repair teams can search and reason over it instead of opening PDFs. I own the Postgres and DynamoDB layer underneath: query paths, indexes and storage strategy, tuned against real usage.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">ETL</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span><span class="tag">Django ORM</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">iot / device-ingest</p>
+        <h3>Medical device data integration</h3>
+        <p class="where">Bacancy Technology · 2022 to 2023</p>
+      </div>
+      <div>
+        <p>FastAPI endpoints backed by AWS S3, MQTT and Lambda, connecting Philips Biotel devices to the client portal with secure storage and real-time processing of streaming device data. Flask services alongside it were containerised with Docker and run on Kubernetes.</p>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">MQTT</span><span class="tag">AWS Lambda</span><span class="tag">S3</span><span class="tag">Kubernetes</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">embedded / water-controllers</p>
+        <h3>Python on a microcontroller</h3>
+        <p class="where">Xylem Inc. · 2020 to 2022</p>
+      </div>
+      <div>
+        <p>Led an embedded application for water controllers written in Python and compiled to C modules with CPython for flashing onto the device. Modbus, MQTT and JSON-RPC carried messages between sensors and controllers, with real-time behaviour built on Python's signal, threading and scheduler libraries using thread pool and process pool models.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">CPython</span><span class="tag">Modbus</span><span class="tag">MQTT</span><span class="tag">JSON-RPC</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">fintech / trade-surveillance</p>
+        <h3>Trading activity extraction</h3>
+        <p class="where">First Derivative · 2025</p>
+      </div>
+      <div>
+        <p>Python jobs that pull trader activity from NAS file systems, databases and Splunk and turn unstructured logs into structured JSON: timestamped queries, user actions, originating screen. The Risk team uses that feed for anomaly detection. I also worked with IT system owners to change how the source applications log in the first place, which helped more than any parsing improvement could.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">Splunk</span><span class="tag">Grafana Loki</span><span class="tag">Regex</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap">
+    <p class="eyebrow">What I am learning right now</p>
+    <div class="tracks">
+
+      <div class="track">
+        <h3>Building with LLMs</h3>
+        <p class="aim">LangChain · LangGraph · RAG</p>
+        <p>The application layer over language models: retrieval that actually returns the right chunk, and graphs that let an agent take more than one step without losing the plot.</p>
+        <ul>
+          <li>LangChain retrieval and response chains, moving to LangGraph for stateful, multi-step flows</li>
+          <li>Vector stores in practice: ChromaDB and Qdrant, with Snowflake Arctic Embed 2 for embeddings</li>
+          <li>Constrained generation and citation-backed answers, so output stays inside what was retrieved</li>
+          <li>Serving it like any other service: FastAPI endpoints, Pytest on retrieval relevance, not a notebook</li>
+        </ul>
+        <div class="stack"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span></div>
+      </div>
+
+      <div class="track">
+        <h3>Data platforms</h3>
+        <p class="aim">Airflow · Iceberg · PySpark</p>
+        <p>My ETL work so far has been scripts and schedulers I wrote myself. I am learning the tools built for the job, and the table format that makes a lake behave like a warehouse.</p>
+        <ul>
+          <li>Airflow DAGs: dependencies, retries, backfills, and what to do when a task fails at 2am</li>
+          <li>Apache Iceberg: schema evolution, partition evolution and time travel over object storage</li>
+          <li>PySpark for transformations that no longer fit comfortably on one machine</li>
+          <li>JupyterHub for the exploratory half, before anything becomes a scheduled job</li>
+        </ul>
+        <div class="stack"><span class="tag">Apache Airflow</span><span class="tag">Iceberg</span><span class="tag">PySpark</span><span class="tag">JupyterHub</span></div>
+      </div>
+
+    </div>
+    <p class="note">To be clear about where the line is: everything under "What I have built" ran in production with real users. This section is study and side projects, some of it starting to touch real work. I would rather tell you that upfront than have it come out in an interview.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Where I have worked</p>
+
+    <div class="role">
+      <p class="when">Aug 2025 — now</p>
+      <div>
+        <h3>Senior Software Developer, Libellule Monde</h3>
+        <p>Aircraft data and analytics platform. Postgres and DynamoDB ownership, Redis caching, automated daily digests to email and Teams.</p>
+      </div>
+    </div>
+    <div class="role">
+      <p class="when">Apr 2025 — Aug 2025</p>
+      <div>
+        <h3>Senior Software Engineer, First Derivative</h3>
+        <p>Trade surveillance data extraction, distributed job deployment across regions, monitoring with Grafana Loki and Splunk.</p>
+      </div>
+    </div>
+    <div class="role">
+      <p class="when">Oct 2023 — Apr 2025</p>
+      <div>
+        <h3>Senior Software Engineer, Libellule Monde</h3>
+        <p>Led the configurator platform and the parts label service. Ran Gunicorn and Caddy on EC2 across production and development.</p>
+      </div>
+    </div>
+    <div class="role">
+      <p class="when">Feb 2022 — Oct 2023</p>
+      <div>
+        <h3>Senior Software Engineer, Bacancy Technology</h3>
+        <p>Django and FastAPI applications for medtech and enterprise clients, on EC2 behind Nginx and Gunicorn, with Docker and Kubernetes.</p>
+      </div>
+    </div>
+    <div class="role">
+      <p class="when">Oct 2020 — Feb 2022</p>
+      <div>
+        <h3>Embedded Software Engineer, Xylem Inc.</h3>
+        <p>Python embedded applications for water controllers. Modbus, MQTT and JSON-RPC between sensors and controllers.</p>
+      </div>
+    </div>
+    <div class="role">
+      <p class="when">2018 — 2020</p>
+      <div>
+        <h3>A&amp;W Engineering Works · L&amp;T Technology Services</h3>
+        <p>Verification suites for ultrasound medical hardware, and Python test automation for mobile and OTT apps. Two spot awards at L&amp;T.</p>
+      </div>
+    </div>
+    <div class="role">
+      <p class="when">Education</p>
+      <div>
+        <h3>Lambton College · Indus University</h3>
+        <p>Post Graduation in Full Stack Software Development, Toronto. B.Tech in Electrical and Electronics, India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="stack">
+  <div class="wrap">
+    <p class="eyebrow">What I work with</p>
+    <div class="skills">
+      <div class="cell"><h4>Languages</h4><p>Python, Go, C and C++, SQL</p></div>
+      <div class="cell"><h4>Backend</h4><p>Django, Django REST Framework, FastAPI, Flask, Fiber, REST, webhooks</p></div>
+      <div class="cell"><h4>Embedded and IoT</h4><p>CPython, Modbus, MQTT, JSON-RPC, threading and scheduling, sensor integration</p></div>
+      <div class="cell"><h4>Data</h4><p>PostgreSQL, Redis, DynamoDB, pandas, NumPy. Learning Airflow, Iceberg and PySpark</p></div>
+      <div class="cell"><h4>Cloud and infra</h4><p>AWS (EC2, S3, Lambda, CodePipeline), Docker, Kubernetes, Gunicorn, Nginx, Caddy</p></div>
+      <div class="cell"><h4>Vision and LLM</h4><p>OpenCV, YOLOv7, Roboflow. LangChain, LangGraph, Qdrant, ChromaDB</p></div>
+      <div class="cell"><h4>Operating</h4><p>Grafana Loki, Splunk, structured logging, GitHub Actions, Jenkins, AWS CodePipeline</p></div>
+      <div class="cell"><h4>Testing</h4><p>Pytest, Unittest, Selenium, Robot Framework, Postman</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>Say hello.</h2>
+    <p>Toronto based, open to remote. Happy to talk about anything above, especially the embedded work, which does not come up often enough.</p>
+    <nav class="links" aria-label="Contact">
+      <a class="chip" href="mailto:er.sarthak@outlook.com">er.sarthak@outlook.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/sarthakshah94">LinkedIn</a>
+      <a class="chip" href="https://github.com/Sarthak-Shah">GitHub</a>
+      <a class="chip" href="https://medium.com/@sarthakshah1920">Medium</a>
+    </nav>
+    <p class="colophon">Sarthak Shah · Etobicoke, Ontario · One static page, hosted on GitHub Pages</p>
+  </div>
+</footer>
+
+</body>
+</html>
