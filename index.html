@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sarthak Shah — Backend &amp; Embedded Engineer</title>
-<meta name="description" content="Sarthak Shah is a senior software engineer in Toronto building backend systems and REST APIs with Python, Django and FastAPI, mostly in aerospace, plus embedded and IoT work.">
+<title>Sarthak Shah — Python Engineer, RAG &amp; Data Platforms</title>
+<meta name="description" content="Sarthak Shah is a senior Python engineer in Toronto building Django/FastAPI backends, RAG and agentic AI apps with LangChain, LangGraph and Qdrant, and data pipelines with Airflow and Snowflake.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
   h1{
     font-family:var(--display);font-weight:800;
     font-size:clamp(2.7rem,8vw,5.2rem);line-height:.95;letter-spacing:-.035em;
-    margin:0 0 26px;max-width:15ch;
+    margin:0 0 26px;max-width:16ch;
   }
   .lede{font-size:clamp(1.05rem,2.4vw,1.26rem);max-width:62ch;margin:0 0 20px;color:#1E2330}
   .lede + .lede{color:var(--muted);font-size:1.02rem}
@@ -132,10 +132,10 @@
 
 <header>
   <div class="wrap">
-    <p class="status"><span class="dot" aria-hidden="true"></span>Toronto, Canada · Backend and embedded · Open to new work</p>
-    <h1>Backend systems, and the hardware they talk to.</h1>
-    <p class="lede">Sarthak Shah. Nine years of Python engineering, currently building backend systems and REST APIs with Django, FastAPI and AWS for the aerospace domain: computer vision cost estimation for aircraft exteriors, and ETL pipelines over ATA documentation that feed MRO workflows.</p>
-    <p class="lede">Before that, embedded and IoT: water controllers, medical devices, sensor protocols. I like the parts of a system where software meets something physical, and I like the parts where it has to keep running at 3am.</p>
+    <p class="status"><span class="dot" aria-hidden="true"></span>Toronto, Canada · Python backend, AI &amp; data platforms · Open to new work</p>
+    <h1>Python backends, RAG systems, and the data pipelines that feed them.</h1>
+    <p class="lede">Sarthak Shah. Nine years of Python engineering — Django, FastAPI and Flask backends at production scale, now building agentic AI and RAG systems with LangChain, LangGraph and Qdrant, and expanding into Airflow, Snowflake and PySpark for the data platforms behind them.</p>
+    <p class="lede">Currently shipping computer vision and ETL systems for aerospace at Libellule Monde, alongside client RAG work in insurance and enterprise knowledge retrieval. Before that: embedded and IoT, which taught me to care about systems that can't afford to fail.</p>
     <nav class="links" aria-label="Contact and profiles">
       <a class="chip" href="mailto:er.sarthak@outlook.com">er.sarthak@outlook.com</a>
       <a class="chip" href="tel:+14167324183">(416) 732-4183</a>
@@ -152,6 +152,54 @@
 <section id="work">
   <div class="wrap">
     <p class="eyebrow">What I have built</p>
+
+    <article class="svc">
+      <div>
+        <p class="slug">ai / enterprise-rag</p>
+        <h3>Agentic RAG for enterprise knowledge retrieval</h3>
+        <p class="where">Morgan Stanley engagement · 2025</p>
+      </div>
+      <div>
+        <p>Contributed to an OpenAI-based RAG system with an agentic, tool/function-calling workflow that routes queries to the correct retrieval source and returns grounded, citation-backed answers. Applied prompt engineering for constrained generation, and exposed retrieval and generation steps as Python service endpoints for downstream apps.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Agentic AI</span><span class="tag">OpenAI</span><span class="tag">Function calling</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">ai / rag-assistant</p>
+        <h3>LangChain + ChromaDB RAG assistant</h3>
+        <p class="where">Independent client work</p>
+      </div>
+      <div>
+        <p>Built a production-use RAG assistant for insurance agency clients: policy and coverage documents embedded into a ChromaDB vector store, with LangChain orchestrating multi-step retrieval and response chains. Served behind a FastAPI endpoint for natural-language policy queries, with Pytest coverage on retrieval relevance before rollout.</p>
+        <div class="stack"><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span><span class="tag">Pytest</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">ai / document-agent</p>
+        <h3>Conversational catalogue agent</h3>
+        <p class="where">Libellule Monde · Nov 2025</p>
+      </div>
+      <div>
+        <p>Built and delivered a pilot smart agent to query Airbus Illustrated Parts Catalogue documentation conversationally, replacing manual lookups for engineering users. Structured document ingestion and prompt constraints so the agent returned source-anchored part references rather than free-form generation.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Prompt engineering</span><span class="tag">Document ingestion</span></div>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div>
+        <p class="slug">aerospace / ata-pipelines</p>
+        <h3>ATA documentation ETL</h3>
+        <p class="where">Libellule Monde</p>
+      </div>
+      <div>
+        <p>Pipelines that pull structure out of ATA-standard aerospace documentation and load it into the analytics platform, so maintenance and repair teams can search and reason over it instead of opening PDFs. I own the Postgres and DynamoDB layer underneath: query paths, indexes and storage strategy, tuned against real usage.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">ETL</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span><span class="tag">Django ORM</span></div>
+      </div>
+    </article>
 
     <article class="svc">
       <div>
@@ -179,13 +227,13 @@
 
     <article class="svc">
       <div>
-        <p class="slug">aerospace / ata-pipelines</p>
-        <h3>ATA documentation ETL</h3>
-        <p class="where">Libellule Monde</p>
+        <p class="slug">fintech / trade-surveillance</p>
+        <h3>Trading activity extraction</h3>
+        <p class="where">First Derivative · 2025</p>
       </div>
       <div>
-        <p>Pipelines that pull structure out of ATA-standard aerospace documentation and load it into the analytics platform, so maintenance and repair teams can search and reason over it instead of opening PDFs. I own the Postgres and DynamoDB layer underneath: query paths, indexes and storage strategy, tuned against real usage.</p>
-        <div class="stack"><span class="tag">Python</span><span class="tag">ETL</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span><span class="tag">Django ORM</span></div>
+        <p>Python jobs that pull trader activity from NAS file systems, databases and Splunk and turn unstructured logs into structured JSON: timestamped queries, user actions, originating screen. The Risk team uses that feed for anomaly detection. I also worked with IT system owners to change how the source applications log in the first place, which helped more than any parsing improvement could.</p>
+        <div class="stack"><span class="tag">Python</span><span class="tag">Splunk</span><span class="tag">Grafana Loki</span><span class="tag">Regex</span></div>
       </div>
     </article>
 
@@ -197,31 +245,7 @@
       </div>
       <div>
         <p>FastAPI endpoints backed by AWS S3, MQTT and Lambda, connecting Philips Biotel devices to the client portal with secure storage and real-time processing of streaming device data. Flask services alongside it were containerised with Docker and run on Kubernetes.</p>
-        <div class="stack"><span class="tag">FastAPI</span><span class="tag">MQTT</span><span class="tag">AWS Lambda</span><span class="tag">S3</span><span class="tag">Kubernetes</span></div>
-      </div>
-    </article>
-
-    <article class="svc">
-      <div>
-        <p class="slug">embedded / water-controllers</p>
-        <h3>Python on a microcontroller</h3>
-        <p class="where">Xylem Inc. · 2020 to 2022</p>
-      </div>
-      <div>
-        <p>Led an embedded application for water controllers written in Python and compiled to C modules with CPython for flashing onto the device. Modbus, MQTT and JSON-RPC carried messages between sensors and controllers, with real-time behaviour built on Python's signal, threading and scheduler libraries using thread pool and process pool models.</p>
-        <div class="stack"><span class="tag">Python</span><span class="tag">CPython</span><span class="tag">Modbus</span><span class="tag">MQTT</span><span class="tag">JSON-RPC</span></div>
-      </div>
-    </article>
-
-    <article class="svc">
-      <div>
-        <p class="slug">fintech / trade-surveillance</p>
-        <h3>Trading activity extraction</h3>
-        <p class="where">First Derivative · 2025</p>
-      </div>
-      <div>
-        <p>Python jobs that pull trader activity from NAS file systems, databases and Splunk and turn unstructured logs into structured JSON: timestamped queries, user actions, originating screen. The Risk team uses that feed for anomaly detection. I also worked with IT system owners to change how the source applications log in the first place, which helped more than any parsing improvement could.</p>
-        <div class="stack"><span class="tag">Python</span><span class="tag">Splunk</span><span class="tag">Grafana Loki</span><span class="tag">Regex</span></div>
+        <div class="stack"><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">MQTT</span><span class="tag">AWS Lambda</span><span class="tag">Kubernetes</span></div>
       </div>
     </article>
   </div>
@@ -229,37 +253,37 @@
 
 <section id="learning">
   <div class="wrap">
-    <p class="eyebrow">What I am learning right now</p>
+    <p class="eyebrow">What I am building toward</p>
     <div class="tracks">
 
       <div class="track">
-        <h3>Building with LLMs</h3>
-        <p class="aim">LangChain · LangGraph · RAG</p>
-        <p>The application layer over language models: retrieval that actually returns the right chunk, and graphs that let an agent take more than one step without losing the plot.</p>
+        <h3>Agentic AI and RAG</h3>
+        <p class="aim">LangChain · LangGraph · Qdrant</p>
+        <p>Already shipped in client and enterprise work. Now deepening the parts that make it production-grade rather than a demo: retrieval that returns the right chunk, and graphs that let an agent take more than one step without losing the plot.</p>
         <ul>
-          <li>LangChain retrieval and response chains, moving to LangGraph for stateful, multi-step flows</li>
-          <li>Vector stores in practice: ChromaDB and Qdrant, with Snowflake Arctic Embed 2 for embeddings</li>
+          <li>LangChain retrieval and response chains, moving to LangGraph for stateful, multi-step agent flows</li>
+          <li>Vector stores in practice: Qdrant and ChromaDB, with Snowflake Arctic Embed 2 for embeddings</li>
           <li>Constrained generation and citation-backed answers, so output stays inside what was retrieved</li>
           <li>Serving it like any other service: FastAPI endpoints, Pytest on retrieval relevance, not a notebook</li>
         </ul>
-        <div class="stack"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span></div>
+        <div class="stack"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Qdrant</span><span class="tag">ChromaDB</span><span class="tag">Agentic AI</span></div>
       </div>
 
       <div class="track">
-        <h3>Data platforms</h3>
-        <p class="aim">Airflow · Iceberg · PySpark</p>
-        <p>My ETL work so far has been scripts and schedulers I wrote myself. I am learning the tools built for the job, and the table format that makes a lake behave like a warehouse.</p>
+        <h3>Data platforms at scale</h3>
+        <p class="aim">Apache Airflow · Snowflake · PySpark · Iceberg</p>
+        <p>My ETL work so far has been scripts and schedulers I wrote myself, feeding real analytics and RAG pipelines. I am moving that onto the tools built for the job: orchestration, warehousing and transformation that scale past one machine.</p>
         <ul>
           <li>Airflow DAGs: dependencies, retries, backfills, and what to do when a task fails at 2am</li>
-          <li>Apache Iceberg: schema evolution, partition evolution and time travel over object storage</li>
-          <li>PySpark for transformations that no longer fit comfortably on one machine</li>
+          <li>Snowflake for warehousing and serving the structured output of document and ETL pipelines</li>
+          <li>PySpark for transformations that no longer fit comfortably on one machine, Iceberg for the table format underneath</li>
           <li>JupyterHub for the exploratory half, before anything becomes a scheduled job</li>
         </ul>
-        <div class="stack"><span class="tag">Apache Airflow</span><span class="tag">Iceberg</span><span class="tag">PySpark</span><span class="tag">JupyterHub</span></div>
+        <div class="stack"><span class="tag">Apache Airflow</span><span class="tag">Snowflake</span><span class="tag">PySpark</span><span class="tag">Iceberg</span><span class="tag">JupyterHub</span></div>
       </div>
 
     </div>
-    <p class="note">To be clear about where the line is: everything under "What I have built" ran in production with real users. This section is study and side projects, some of it starting to touch real work. I would rather tell you that upfront than have it come out in an interview.</p>
+    <p class="note">The RAG and agentic AI work above has shipped to real clients and enterprise engagements. The data-platform tooling is the layer I'm actively formalizing on top of production ETL I already own — I'd rather say that plainly than have it come out in an interview.</p>
   </div>
 </section>
 
@@ -271,7 +295,7 @@
       <p class="when">Aug 2025 — now</p>
       <div>
         <h3>Senior Software Developer, Libellule Monde</h3>
-        <p>Aircraft data and analytics platform. Postgres and DynamoDB ownership, Redis caching, automated daily digests to email and Teams.</p>
+        <p>Aircraft data and analytics platform. Postgres and DynamoDB ownership, Redis caching, automated daily digests to email and Teams via Power Automate.</p>
       </div>
     </div>
     <div class="role">
@@ -325,14 +349,16 @@
   <div class="wrap">
     <p class="eyebrow">What I work with</p>
     <div class="skills">
-      <div class="cell"><h4>Languages</h4><p>Python, Go, C and C++, SQL</p></div>
+      <div class="cell"><h4>Languages</h4><p>Python, Go, SQL</p></div>
       <div class="cell"><h4>Backend</h4><p>Django, Django REST Framework, FastAPI, Flask, Fiber, REST, webhooks</p></div>
-      <div class="cell"><h4>Embedded and IoT</h4><p>CPython, Modbus, MQTT, JSON-RPC, threading and scheduling, sensor integration</p></div>
-      <div class="cell"><h4>Data</h4><p>PostgreSQL, Redis, DynamoDB, pandas, NumPy. Learning Airflow, Iceberg and PySpark</p></div>
+      <div class="cell"><h4>AI &amp; RAG</h4><p>LangChain, LangGraph, Qdrant, ChromaDB, Agentic AI, prompt engineering, OpenAI</p></div>
+      <div class="cell"><h4>Data platforms</h4><p>Apache Airflow, Snowflake, PySpark, Iceberg, JupyterHub, pandas, NumPy</p></div>
+      <div class="cell"><h4>Databases</h4><p>PostgreSQL, Redis, DynamoDB, Django ORM</p></div>
       <div class="cell"><h4>Cloud and infra</h4><p>AWS (EC2, S3, Lambda, CodePipeline), Docker, Kubernetes, Gunicorn, Nginx, Caddy</p></div>
-      <div class="cell"><h4>Vision and LLM</h4><p>OpenCV, YOLOv7, Roboflow. LangChain, LangGraph, Qdrant, ChromaDB</p></div>
-      <div class="cell"><h4>Operating</h4><p>Grafana Loki, Splunk, structured logging, GitHub Actions, Jenkins, AWS CodePipeline</p></div>
+      <div class="cell"><h4>Vision</h4><p>OpenCV, YOLOv7, Roboflow</p></div>
+      <div class="cell"><h4>Operating &amp; CI/CD</h4><p>Grafana Loki, Splunk, GitHub Actions, Jenkins, AWS CodePipeline</p></div>
       <div class="cell"><h4>Testing</h4><p>Pytest, Unittest, Selenium, Robot Framework, Postman</p></div>
+      <div class="cell"><h4>Embedded (background)</h4><p>CPython, Modbus, MQTT, JSON-RPC, C/C++</p></div>
     </div>
   </div>
 </section>
@@ -340,7 +366,7 @@
 <footer>
   <div class="wrap">
     <h2>Say hello.</h2>
-    <p>Toronto based, open to remote. Happy to talk about anything above, especially the embedded work, which does not come up often enough.</p>
+    <p>Toronto based, open to remote. Happy to talk about Python backends, RAG and agentic AI systems, or the data platforms feeding them.</p>
     <nav class="links" aria-label="Contact">
       <a class="chip" href="mailto:er.sarthak@outlook.com">er.sarthak@outlook.com</a>
       <a class="chip" href="https://www.linkedin.com/in/sarthakshah94">LinkedIn</a>
